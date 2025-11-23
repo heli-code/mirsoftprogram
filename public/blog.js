@@ -2,12 +2,16 @@
 class BlogListApp {
     constructor() {
         // 从环境变量或默认值获取 Supabase 配置
-        this.supabaseUrl = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? 
+        // 使用全局window对象的环境变量访问方式，兼容Netlify部署
+        const isLocal = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1');
+        this.supabaseUrl = isLocal ? 
             'https://hlszmnqtoccezqagbuyd.supabase.co' : 
-            (process.env.SUPABASE_URL || 'https://your-project.supabase.co');
-        this.supabaseKey = window.location.hostname.includes('localhost') || window.location.hostname.includes('127.0.0.1') ? 
+            (typeof process !== 'undefined' && process.env && process.env.SUPABASE_URL) || 
+            'https://hlszmnqtoccezqagbuyd.supabase.co'; // 默认使用生产环境URL
+        this.supabaseKey = isLocal ? 
             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhsc3ptbnF0b2NjZXpxYWdidXlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4NzU4NzMsImV4cCI6MjA3OTQ1MTg3M30.sUAvFoKTIiADmWewa2CPy8bJCYAGU4xNCqdrbmwSvJQ' : 
-            (process.env.SUPABASE_ANON_KEY || 'your-anon-key');
+            (typeof process !== 'undefined' && process.env && process.env.SUPABASE_ANON_KEY) || 
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhsc3ptbnF0b2NjZXpxYWdidXlkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjM4NzU4NzMsImV4cCI6MjA3OTQ1MTg3M30.sUAvFoKTIiADmWewa2CPy8bJCYAGU4xNCqdrbmwSvJQ'; // 默认使用生产环境密钥
         this.supabase = null;
         this.currentCategory = null;
         this.categories = {}; // 缓存分类数据

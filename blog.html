@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>所有文章 - 我的个人博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo"><a href="index.html">我的博客</a></h1>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="blog.html" class="active">文章</a></li>
+                    <li><a href="about.html">关于</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-header">
+            <div class="container">
+                <h1>所有文章</h1>
+                <p>探索我的思考和见解</p>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <div class="posts-grid" id="blog-posts-container">
+                    <!-- 动态加载博客文章 -->
+                </div>
+                <div id="loading" class="loading">加载中...</div>
+            </div>
+        </section>
+
+        <section class="categories-section" style="background: #f8f9fa; padding: 3rem 0;">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 2rem;">文章分类</h2>
+                <div class="categories-grid" id="categories-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                    <!-- 动态加载分类 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 我的个人博客. 所有权利保留.</p>
+        </div>
+    </footer>
+
+    <script src="blog.js"></script>
+</body>
+</html>

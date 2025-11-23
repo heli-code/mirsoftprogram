@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo"><a href="index.html">我的博客</a></h1>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="blog.html">文章</a></li>
+                    <li><a href="about.html">关于</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>欢迎来到我的个人博客</h2>
+                <p>分享思考，记录生活，传递价值</p>
+                <a href="blog.html" class="cta-button">开始阅读</a>
+            </div>
+        </section>
+
+        <section class="latest-posts">
+            <div class="container">
+                <h3>最新文章</h3>
+                <div id="latest-posts-container" class="posts-grid">
+                    <!-- 动态加载最新文章 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 我的个人博客. 所有权利保留.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

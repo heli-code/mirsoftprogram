@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">文章详情 - 我的个人博客</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <h1 class="logo"><a href="index.html">我的博客</a></h1>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="blog.html">文章</a></li>
+                    <li><a href="about.html">关于</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-detail">
+            <div class="container">
+                <div id="post-loading" class="loading">加载文章中...</div>
+                <div id="post-content" class="post-content" style="display: none;">
+                    <header class="post-header">
+                        <h1 id="post-title"></h1>
+                        <div class="post-meta">
+                            <span id="post-date"></span>
+                            <span id="post-category"></span>
+                            <span id="post-views"></span>
+                        </div>
+                    </header>
+                    
+                    <div id="post-body" class="post-body">
+                        <!-- 文章内容将动态加载 -->
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button id="like-button" class="like-button">
+                            <span id="like-count">0</span> 喜欢
+                        </button>
+                    </div>
+                    
+                    <section class="comments-section">
+                        <h3>评论</h3>
+                        <div id="comments-container">
+                            <!-- 评论将动态加载 -->
+                        </div>
+                        
+                        <div class="comment-form">
+                            <h4>发表评论</h4>
+                            <form id="comment-form">
+                                <input type="text" id="comment-name" placeholder="你的名字" required>
+                                <textarea id="comment-content" placeholder="写下你的评论..." required></textarea>
+                                <button type="submit">发表评论</button>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+                
+                <div id="post-error" class="error-message" style="display: none;">
+                    <h2>文章未找到</h2>
+                    <p>抱歉，您查找的文章不存在或已被删除。</p>
+                    <a href="blog.html">返回文章列表</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 我的个人博客. 所有权利保留.</p>
+        </div>
+    </footer>
+
+    <script src="post.js"></script>
+</body>
+</html>
